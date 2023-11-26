@@ -1,0 +1,111 @@
+{
+  "Outputs" : {
+    "HeartAttack" : {
+      "MLFeatureShortDescription" : "--"
+    }
+  },
+  "Inputs" : {
+    "HeartDiseaseHistory" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "dizziness" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "persistentIntermenstrualBleeding" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "nightSweats" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "DiabetesHistory" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "vomiting" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "bloodPressureDiastolic" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "PrimaryDiet" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "infrequentMenstrualCycles" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "Smoking" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "fatigue" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "shortnessOfBreath" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "Contraceptive" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "DiabetesFamilial" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "lowHeartRateEvent" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "prolongedMenstrualPeriods" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "DistanceWalkingRunning" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "nausea" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "heartRate" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "rapidPoundingOrFlutteringHeartbeat" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "BMI" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "irregularHeartRhythmEvent" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "irregularMenstrualCycles" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "heartburn" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "fainting" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "highHeartRateEvent" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "intermenstrualBleeding" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "bloodPressureSystolic" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "HeartDiseaseFamilial" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "Age" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "abdominalCramps" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "chestTightnessOrPain" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "StepCount" : {
+      "MLFeatureShortDescription" : "--"
+    }
+  },
+  "TrainingInputs" : {
+
+  }
+}
