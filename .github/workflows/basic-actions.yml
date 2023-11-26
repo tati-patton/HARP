@@ -25,5 +25,5 @@ jobs:
       run: |
         # Additional checks or validations
 
-      # Mark this step as Required to Pass
+      # This step is Required to Pass
       continue-on-error: ${{ false }}
