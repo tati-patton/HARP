@@ -95,9 +95,6 @@ struct MainView: View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.white, .white]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .edgesIgnoringSafeArea(.all)
-                .onAppear() {
-                    retrieveData()
-                }
             VStack {
                 Image(systemName: "heart.fill")
                     .imageScale(.large)
@@ -107,6 +104,9 @@ struct MainView: View {
                 Text("Heart Attack Risk Predictor")
                     .font(.system(size:25, weight: .medium, design: .rounded))
                     .foregroundColor(.indigo)
+                    .onAppear() {
+                        retrieveData()
+                    }
                 Spacer(minLength: 20)
                 
                 TabView {
@@ -131,24 +131,30 @@ struct MainView: View {
     } // body
     
     func retrieveData() {
-        api.requestAuthorizationIfNeeded()
-        // Clear existing data
-        dataModel.allRetrievedData.removeAll()
-        
-        // Use HKSampleQuery to query the HealthKit store for samples by type.
-        for section in Section.allCases {
-            for sampleType in section.types {
-                api.queryAndDisplayData(for: sampleType, section: section) {identifier, data in
-                    DispatchQueue.main.async {
-                        let newData = ["identifier": identifier, "data": data]
-                        dataModel.allRetrievedData.append(newData)
-                    }
-                }
+        api.requestAuthorizationIfNeeded { success in
+            guard success else {
+                // Handle the case where authorization is not successful
+                print("Authorization failed")
+                return
             }
-        } // for
+            
+            // Clear existing data
+            dataModel.allRetrievedData.removeAll()
+            
+            // Use HKSampleQuery to query the HealthKit store for samples by type.
+            for section in Section.allCases {
+                for sampleType in section.types {
+                    api.queryAndDisplayData(for: sampleType, section: section) {identifier, data in
+                        DispatchQueue.main.async {
+                            let newData = ["identifier": identifier, "data": data]
+                            dataModel.allRetrievedData.append(newData)
+                        }
+                    }
+                } // for
+            }
+        }
     }
 }
-
 
 #Preview {
     MainView()

@@ -122,16 +122,17 @@ class API: ObservableObject{
     /// if user has already granted authorization. If the user hasn't granted authorization, the app
     /// requests authorization from the person using the app.
     @objc
-    func requestAuthorizationIfNeeded(_ sender: AnyObject? = nil) {
+    func requestAuthorizationIfNeeded(completion: @escaping (Bool) -> Void) {
         healthStore.getRequestStatusForAuthorization(toShare: Set(), read: sampleTypes) { (status, error) in
             if status == .unnecessary {
                 DispatchQueue.main.async {
                     let message = "Authorization status has been determined, no need to request authorization at this time"
                     //self.present(message: message, titled: "Already Requested")
                     print(message)
+                    completion(true)
                 }
             } else {
-                self.requestAuthorization(sender)
+                self.requestAuthorization(completion: completion)
             }
             print(error ?? " ")
         }
@@ -140,15 +141,17 @@ class API: ObservableObject{
     /// The health store's requestAuthorization method presents a permissions sheet to the user, allowing the user to
     /// choose what data they allow the app to access.
     @objc
-    func requestAuthorization(_ sender: AnyObject? = nil) {
+    func requestAuthorization(completion: @escaping (Bool) -> Void) {
         healthStore.requestAuthorization(toShare: nil, read: sampleTypes) { (success, error) in
             guard success else {
                 DispatchQueue.main.async {
                     //self.handleError(error)
                     print("Error occurred \(String(describing: error))")
+                    completion(false)
                 }
                 return
             }
+            completion(true)
         }
     }
     
